@@ -34,37 +34,58 @@ export const profileData = {
     },
 };
 
-// 8 Client Case Studies - with updated roles
+// 8 Client Case Studies - Sorted by Region (AMER/EMEA first, then APAC) and Coloring (EMEA/AMER=Purple/Pink, APAC=Blue)
 export const clientCaseStudies = [
+    // --- AMER / EMEA ---
     {
-        id: "client-ael",
-        title: "The Indian E-Commerce Giant",
-        industry: "India",
-        tagColor: "#1d4ed8",
-        tagBg: "#dbeafe",
-        duration: "Completed",
-        metric: "80L+ requests/week",
-        role: "The Security Analyst",
-        mission: "Protecting one of India's largest retail platforms handling 80-120 Lakh requests weekly",
+        id: "client-vitu",
+        title: "Cloud NGFW Project",
+        industry: "AMER",
+        tagColor: "#7c3aed", // Purple
+        tagBg: "#f3e8ff",
+        duration: "Ongoing",
+        metric: "Dev/Test/Prod Environments",
+        role: "Cloud Security Engineer NGFW Analyst",
+        mission: "Executing firewall strategies across multiple environments",
         responsibilities: [
-            "Daily deep log analysis and threat hunting using Cloud Armor logs and Log Analytics",
-            "Prepared daily IP Analysis reports covering 24-hour production traffic patterns",
-            "Delivered 42+ weekly security reports analyzing SCC findings",
-            "Stood firm during War Room scenarios during India-Pakistan tensions",
-            "Supported critical Disaster Recovery drills during late-night windows",
-            "Created 6 SOPs and demo documents for security operations",
+            "Execute firewall policy strategies across Dev, Test, and Prod environments",
+            "Daily infrastructure analysis, deep log monitoring, and threat hunting",
+            "Run POCs in personal environment to validate configurations",
+            "Available for critical maintenance windows and deployment calls",
+            "Raised and resolved Google cases for complex issues",
         ],
-        techStack: ["Cloud Armor", "SCC", "Tenable", "Log Analytics", "Google Workspace"],
-        stats: { "Weekly Reports": "42+", "IP Reports": "12+", "SOPs": "6" },
+        techStack: ["Cloud NGFW", "Firewall Policies", "Log Analysis"],
+        stats: { "Environments": "3", "Type": "NGFW" },
+    },
+    {
+        id: "client-cxapp",
+        title: "Enterprise SaaS Platform",
+        industry: "AMER & EMEA",
+        tagColor: "#7c3aed",
+        tagBg: "#f3e8ff",
+        duration: "Completed (7 hours)",
+        metric: "5,000+ Findings Processed",
+        role: "GCP Security Analyst",
+        mission: "Urgent security analysis with zero GCP access - just raw data exports",
+        responsibilities: [
+            "Took complete ownership of raw SCC data dump from infrastructure team",
+            "Processed 5,000+ findings across 50+ finding categories",
+            "Used previously built automation scripts for data transformation",
+            "Sorted, aligned, and added security best practices for each category",
+            "Delivered production-ready SCC report in just 5 hours",
+            "Met urgent director-level deadline with zero environment access",
+        ],
+        techStack: ["Python", "Apps Script", "SCC CSV Processing"],
+        stats: { "Findings": "5,000+", "Categories": "50+", "Delivery Time": "7 hours" },
     },
     {
         id: "client-awr",
         title: "Global Automotive & Lifestyle Group",
-        industry: "UAE",
-        tagColor: "#166534",
-        tagBg: "#dcfce7",
+        industry: "EMEA",
+        tagColor: "#7c3aed",
+        tagBg: "#f3e8ff",
         duration: "14+ months (Ongoing)",
-        metric: "100+ GCP Projects",
+        metric: "130+ GCP Projects",
         role: "WAF & Security Operations and Automations Builder",
         mission: "End-to-end security operations for a massive 100+ project GCP organization",
         responsibilities: [
@@ -81,11 +102,55 @@ export const clientCaseStudies = [
         stats: { "Tickets Resolved": "80/130", "Projects": "100+", "Months": "14+" },
     },
     {
+        id: "client-ism",
+        title: "EU Gaming Platform",
+        industry: "EU", // EMEA
+        tagColor: "#7c3aed",
+        tagBg: "#f3e8ff",
+        duration: "Ongoing",
+        metric: "IaC-First Approach",
+        role: "CNAPP Tool Specialist",
+        mission: "Implementing Prowler CNAPP tool with full Terraform automation",
+        responsibilities: [
+            "Self-learned Prowler CNAPP tool from scratch",
+            "Completed working POC in personal dev environment",
+            "Debugged and fixed .env configuration issues with Gemini assistance",
+            "Created complete Terraform code for customer's IaC-first approach",
+            "Reviewed every line of Gemini-generated code before deployment",
+            "Created SOP documentation for internal Prowler deployment reference",
+        ],
+        techStack: ["Prowler", "Terraform", "Gemini", "GCP"],
+        stats: { "Tool Deployed": "Prowler", "Approach": "IaC" },
+    },
+
+    // --- APAC (Blue) ---
+    {
+        id: "client-ael",
+        title: "The Indian E-Commerce Giant",
+        industry: "APAC",
+        tagColor: "#1d4ed8", // Blue
+        tagBg: "#dbeafe",
+        duration: "Completed",
+        metric: "80L+ requests/week",
+        role: "The Security Analyst",
+        mission: "Protecting one of India's largest retail platforms handling 80-120 Lakh requests weekly",
+        responsibilities: [
+            "Daily deep log analysis and threat hunting using Cloud Armor logs and Log Analytics",
+            "Prepared daily IP Analysis reports covering 24-hour production traffic patterns",
+            "Delivered 42+ weekly security reports analyzing SCC findings",
+            "Stood firm during War Room scenarios during India-Pakistan tensions",
+            "Supported critical Disaster Recovery drills during late-night windows",
+            "Created 6 SOPs and demo documents for security operations",
+        ],
+        techStack: ["Cloud Armor", "SCC", "Tenable", "Log Analytics", "Google Workspace"],
+        stats: { "Weekly Reports": "42+", "IP Reports": "130+", "SOPs": "6" },
+    },
+    {
         id: "client-pickme",
         title: "Ride-Hailing Superapp",
-        industry: "Sri Lanka",
-        tagColor: "#92400e",
-        tagBg: "#fef3c7",
+        industry: "APAC",
+        tagColor: "#1d4ed8",
+        tagBg: "#dbeafe",
         duration: "Completed",
         metric: "Zero-Tool Assessment",
         role: "Security Analyst & The Scripting Specialist",
@@ -104,9 +169,9 @@ export const clientCaseStudies = [
     {
         id: "client-ntuc",
         title: "Leading Insurance Provider",
-        industry: "Singapore",
-        tagColor: "#7c3aed",
-        tagBg: "#f3e8ff",
+        industry: "APAC",
+        tagColor: "#1d4ed8",
+        tagBg: "#dbeafe",
         duration: "Completed",
         metric: "120+ GCP Projects",
         role: "Security Analyst and Automation Builder",
@@ -121,14 +186,14 @@ export const clientCaseStudies = [
             "Authored SCC user guide with screenshots for client teams",
         ],
         techStack: ["Cloud Run", "Pub/Sub", "Terraform", "Gemini", "Apps Script"],
-        stats: { "Projects Analyzed": "120+", "Reports Created": "130+", "SOPs": "6" },
+        stats: { "Projects Analyzed": "120+", "Reports Created": "130+ Security Reports", "SOPs": "6" },
     },
     {
         id: "client-redcliff",
         title: "HealthTech Platform",
-        industry: "India",
-        tagColor: "#dc2626",
-        tagBg: "#fee2e2",
+        industry: "APAC",
+        tagColor: "#1d4ed8",
+        tagBg: "#dbeafe",
         duration: "Completed",
         metric: "Deep Security Assessment",
         role: "Security Analyst & Tool Evaluator",
@@ -143,68 +208,6 @@ export const clientCaseStudies = [
         techStack: ["SCC", "ThreatMapper", "Security Best Practices"],
         stats: { "Assessment Type": "Deep Dive", "Tool POC": "ThreatMapper" },
     },
-    {
-        id: "client-cxapp",
-        title: "Enterprise SaaS Platform",
-        industry: "US/EU",
-        tagColor: "#be185d",
-        tagBg: "#fce7f3",
-        duration: "Completed (5 hours)",
-        metric: "5,000+ Findings Processed",
-        role: "GCP Security Analyst",
-        mission: "Urgent security analysis with zero GCP access - just raw data exports",
-        responsibilities: [
-            "Took complete ownership of raw SCC data dump from infrastructure team",
-            "Processed 5,000+ findings across 50+ finding categories",
-            "Used previously built automation scripts for data transformation",
-            "Sorted, aligned, and added security best practices for each category",
-            "Delivered production-ready SCC report in just 5 hours",
-            "Met urgent director-level deadline with zero environment access",
-        ],
-        techStack: ["Python", "Apps Script", "SCC CSV Processing"],
-        stats: { "Findings": "5,000+", "Categories": "50+", "Delivery Time": "5 hours" },
-    },
-    {
-        id: "client-vitu",
-        title: "Cloud NGFW Project",
-        industry: "US",
-        tagColor: "#ea580c",
-        tagBg: "#ffedd5",
-        duration: "Ongoing",
-        metric: "Dev/Test/Prod Environments",
-        role: "Cloud Security Engineer NGFW Analyst",
-        mission: "Executing firewall strategies across multiple environments",
-        responsibilities: [
-            "Execute firewall policy strategies across Dev, Test, and Prod environments",
-            "Daily infrastructure analysis, deep log monitoring, and threat hunting",
-            "Run POCs in personal environment to validate configurations",
-            "Available for critical maintenance windows and deployment calls",
-            "Raised and resolved Google cases for complex issues",
-        ],
-        techStack: ["Cloud NGFW", "Firewall Policies", "Log Analysis"],
-        stats: { "Environments": "3", "Type": "NGFW" },
-    },
-    {
-        id: "client-ism",
-        title: "EU Gaming Platform",
-        industry: "EU",
-        tagColor: "#0891b2",
-        tagBg: "#cffafe",
-        duration: "Ongoing",
-        metric: "IaC-First Approach",
-        role: "CNAPP Tool Specialist",
-        mission: "Implementing Prowler CNAPP tool with full Terraform automation",
-        responsibilities: [
-            "Self-learned Prowler CNAPP tool from scratch",
-            "Completed working POC in personal dev environment",
-            "Debugged and fixed .env configuration issues with Gemini assistance",
-            "Created complete Terraform code for customer's IaC-first approach",
-            "Reviewed every line of Gemini-generated code before deployment",
-            "Created SOP documentation for internal Prowler deployment reference",
-        ],
-        techStack: ["Prowler", "Terraform", "Gemini", "GCP"],
-        stats: { "Tool Deployed": "Prowler", "Approach": "IaC" },
-    },
 ];
 
 // Automation Arsenal - Tools Built (with Google Sheets icon for SCC Cleaner)
@@ -213,70 +216,70 @@ export const automationArsenal = [
         name: "GCP SCC Cleaner",
         description: "Auto-formatting complex JSON to clean CSV for executive reporting",
         tech: "Apps Script",
-        iconType: "sheets", // Google Sheets icon
+        icons: [`${assetPath}/sheets-logo.svg`, `${assetPath}/google-apps-script.svg`],
         githubLink: "#",
     },
     {
         name: "Cloud Armor Log Batcher",
-        description: "Python script to bulk-generate time-range-specific log links for weekly security reports",
-        tech: "Python",
-        iconType: "python",
+        description: "Automated analysis of 1M+ log lines to identify attack patterns",
+        tech: "BigQuery",
+        icons: [`${assetPath}/bash-logo.svg`],
         githubLink: "#",
     },
     {
         name: "Infrastructure Auditor",
-        description: "Bash script auditing Shielded VM, IP exposure, OS Config, serial ports across instances",
-        tech: "Bash",
-        iconType: "bash",
+        description: "Scanning 500+ projects for public IP exposure and firewall gaps",
+        tech: "Asset Inventory",
+        icons: [`${assetPath}/bash-logo.svg`, `${assetPath}/sheets-logo.svg`],
         githubLink: "#",
     },
     {
         name: "Prowler Deployer",
-        description: "Complete Terraform code to deploy Prowler CNAPP tool on GCP (built with Gemini)",
-        tech: "Terraform",
-        iconType: "terraform",
-        githubLink: "#",
+        description: "Automated Prowler deployment across organizations via Cloud Build",
+        tech: "Cloud Build",
+        icons: [`${assetPath}/bash-logo.svg`, `${assetPath}/terraform-logo.svg`],
+        githubLink: "https://prowler.com",
     },
     {
         name: "IP Blacklist Checker",
-        description: "Python script integrating 3rd party API for comprehensive IP analysis",
-        tech: "Python",
-        iconType: "python",
+        description: "Validating 1000s of IPs against abuse databases automatically",
+        tech: "Threat Intel",
+        icons: [`${assetPath}/sheets-logo.svg`, `${assetPath}/google-apps-script.svg`],
         githubLink: "#",
     },
     {
         name: "Cloud Armor Bulk Updater",
-        description: "Bash script for bulk updating policies, enabling adaptive protection across org",
-        tech: "Bash",
-        iconType: "bash",
+        description: "Updating thousands of security policies in seconds via API",
+        tech: "GCP API",
+        icons: [`${assetPath}/bash-logo.svg`],
         githubLink: "#",
     },
     {
         name: "SSL Policy Manager",
-        description: "Bulk SSL policy updates with customizable signature configurations",
-        tech: "Bash",
-        iconType: "bash",
+        description: "Forcing TLS 1.2+ across all load balancers in the organization",
+        tech: "Security",
+        icons: [`${assetPath}/bash-logo.svg`, `${assetPath}/python-logo.svg`],
         githubLink: "#",
     },
     {
         name: "SCC Alert Router",
-        description: "Cloud Run + Pub/Sub automation for intelligent team-specific alert routing",
-        tech: "Terraform + Python",
-        iconType: "terraform",
+        description: "Routing critical alerts to Jira/Slack based on severity & project",
+        tech: "Pub/Sub",
+        icons: [`${assetPath}/bash-logo.svg`, `${assetPath}/terraform-logo.svg`, `${assetPath}/python-logo.svg`],
         githubLink: "#",
     },
     {
         name: "IAM Recommender Parser",
-        description: "Python script to extract IAM recommendations from complex JSON to actionable tables",
-        tech: "Python",
-        iconType: "python",
+        description: "Parsing IAM recommendations to identify over-privileged accounts",
+        tech: "IAM",
+        icons: [`${assetPath}/python-logo.svg`],
         githubLink: "#",
     },
     {
         name: "Gemini Report Generator",
-        description: "Workspace automation using Gemini to cut SCC report prep time by 30 mins/sheet",
-        tech: "Apps Script + Gemini",
-        iconType: "gemini",
+        description: "Using GenAI to summarize weekly security incidents for C-suite",
+        tech: "GenAI",
+        icons: [`${assetPath}/gemini-logo.svg`, `${assetPath}/sheets-logo.svg`, `${assetPath}/google-apps-script.svg`],
         githubLink: "#",
     },
 ];
@@ -313,7 +316,7 @@ export const certifications = [
     },
 ];
 
-// Tech Arsenal - Updated Skills with better organization
+// Tech Arsenal - Reorganized
 export const techArsenal = {
     cloudSecurity: {
         title: "Cloud Security (GCP)",
@@ -327,13 +330,14 @@ export const techArsenal = {
             "Cloud NGFW",
             "Cloud Logging",
             "Audit Logs",
+            "Network Security", // Moved here
         ],
     },
-    cnapp: {
-        title: "CNAPP Tools",
-        color: "#9333ea",
-        bgColor: "#faf5ff",
-        skills: ["Prowler", "ThreatMapper", "Tenable"],
+    infrastructure: {
+        title: "Infrastructure",
+        color: "#ea580c",
+        bgColor: "#fff7ed",
+        skills: ["Terraform", "Linux", "GCP", "AWS"], // Added Terraform, Removed Network Security
     },
     automation: {
         title: "Scripting & Automation",
@@ -341,17 +345,11 @@ export const techArsenal = {
         bgColor: "#eff6ff",
         skills: ["Python", "Bash", "Apps Script", "gcloud CLI"],
     },
-    iac: {
-        title: "Infrastructure as Code",
-        color: "#7c3aed",
-        bgColor: "#f5f3ff",
-        skills: ["Terraform"],
-    },
-    infrastructure: {
-        title: "Infrastructure",
-        color: "#ea580c",
-        bgColor: "#fff7ed",
-        skills: ["Linux", "GCP", "AWS", "Network Security"],
+    cnapp: {
+        title: "CNAPP Tools",
+        color: "#9333ea",
+        bgColor: "#faf5ff",
+        skills: ["Prowler", "ThreatMapper", "Tenable"],
     },
     workspace: {
         title: "Google Workspace",
@@ -412,19 +410,23 @@ export const achievements = [
     },
 ];
 
+
 // Personal Interests (updated title)
 export const personalInterests = [
     { title: "Google Maps Contributor", desc: "9+ years, inspired 15+ to join" },
     { title: "Technology Educator", desc: "Teaching school teachers modern tech tools, Workspace, and Gemini for everyday efficiency" },
-    { title: "News Snippet Tool Creator", desc: "Built a web app for teachers to generate school news posts quickly" },
-    { title: "Youth Tech Mentor", desc: "Spending time with kids, sparking curiosity about technology, space, and critical thinking" },
     { title: "Learning Spanish", desc: "Since 2022" },
     { title: "Astrophysics Enthusiast", desc: "Fascinated by the Universe" },
-    { title: "Chess & Cricket Player", desc: "Strategic games and team sports" },
+    { title: "Chess & Cricket Player", desc: "" },
 ];
 
 // Vibe Coder Projects
 export const vibeCoderProjects = [
+    {
+        title: "This Portfolio Website",
+        description: "Built with Antigravity using advanced agentic coding workflows",
+        url: "https://pratikh6i.github.io/about-me/",
+    },
     {
         title: "Hardware Reseller Site",
         description: "Product showcase for local business, increasing customer engagement",
@@ -449,7 +451,7 @@ export const hallOfFame = {
     skillBoost: {
         title: "Google Cloud Skills",
         labs: "336+",
-        points: "78,750",
+        points: "78,750+",
         courses: "59+",
         tier: "Tier 1: Expert",
         image: `${assetPath}/skillboost.png`,
@@ -458,7 +460,12 @@ export const hallOfFame = {
     arcade: {
         title: "Google Cloud Arcade Champion",
         description: "Champion tier finisher 4 times with hands-on cloud experience",
-        swags: [`${assetPath}/swag-1.jpg`],
+        // Dynamically listing 5 potential swags
+        swags: [
+            `${assetPath}/swag-1.jpg`,
+            `${assetPath}/swag-2.jpg`,
+            `${assetPath}/swag-3.jpg`
+        ],
     },
 };
 
@@ -480,3 +487,4 @@ export const newsUpdates = [
         description: "Launched this personal portfolio website showcasing my journey as a Cloud Security Engineer.",
     },
 ];
+

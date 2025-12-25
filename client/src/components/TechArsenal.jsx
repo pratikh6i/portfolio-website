@@ -23,7 +23,7 @@ function TechArsenal() {
                 </motion.div>
 
                 {/* Skills Grid - Clean Card Design */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full">
                     {categories.map((category, catIndex) => (
                         <motion.div
                             key={category.title}
@@ -48,12 +48,13 @@ function TechArsenal() {
                                 {category.skills.map((skill, skillIndex) => (
                                     <motion.div
                                         key={skill}
-                                        className="text-sm text-[var(--text-primary)] font-medium"
+                                        className="text-sm text-[var(--text-primary)] font-medium flex items-center gap-2"
                                         initial={{ opacity: 0 }}
                                         whileInView={{ opacity: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: catIndex * 0.08 + skillIndex * 0.03 }}
                                     >
+                                        <span className="w-1.5 h-1.5 bg-current rounded-full opacity-60 flex-shrink-0" style={{ color: category.color }}></span>
                                         {skill}
                                     </motion.div>
                                 ))}

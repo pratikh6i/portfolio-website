@@ -64,7 +64,7 @@ function Footer() {
                             Pratik Shetti
                         </h3>
                         <p className="text-sm text-[var(--text-secondary)]">
-                            Cloud Security Engineer | Automation Specialist
+                            Cloud Security Engineer | Automation Enthusiast
                         </p>
                     </motion.div>
 
@@ -103,21 +103,17 @@ function Footer() {
                         transition={{ delay: 0.2 }}
                     >
                         <a
-                            href={profileData.links.resume}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent-primary)] text-white text-sm font-medium hover:shadow-lg transition-all mb-3"
+                            href="mailto:pratikpshetti45@gmail.com?subject=[Enter your subject here]&body=[ please mention what is the role for which you are asking the resume, and please provide some information about your organisation vision. thank you]"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent-primary)] text-white text-sm font-medium hover:shadow-lg transition-all mb-3 hover:scale-105 active:scale-95"
                         >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                <polyline points="14 2 14 8 20 8" />
-                                <line x1="16" y1="13" x2="8" y2="13" />
-                                <line x1="16" y1="17" x2="8" y2="17" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
                             </svg>
-                            Download Resume
+                            Ask for Resume
                         </a>
                         <p className="text-xs text-[var(--text-tertiary)]">
-                            © {currentYear} Pratik Shetti. Built with Antigravity
+                            © {currentYear} Antigravity. Built with Prompts and 🤍 by Pratik Shetti
                         </p>
                     </motion.div>
                 </div>

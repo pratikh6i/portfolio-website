@@ -66,6 +66,9 @@ function AchievementsAndInterests() {
                             </svg>
                             When Not Building/Securing Cloud
                         </h3>
+                        <p className="text-sm text-[var(--text-secondary)] mb-4 leading-relaxed">
+                            When I’m not securing the cloud, I’m usually mapping the Earth (9-year Google Maps contributor) or exploring the stars and read about univers secrates. I build web tools to save teachers time, mentor the next generation of techies, and unwind with a good game of chess.
+                        </p>
                         <div className="space-y-3">
                             {personalInterests.map((interest, index) => (
                                 <motion.div
@@ -98,7 +101,7 @@ function AchievementsAndInterests() {
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="#9333ea">
                                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                             </svg>
-                            Vibe Coder Projects
+                            Vibe Coded Projects
                         </h3>
                         <div className="space-y-4">
                             {vibeCoderProjects.map((project, index) => (
@@ -129,21 +132,6 @@ function AchievementsAndInterests() {
                                 </motion.a>
                             ))}
                         </div>
-
-                        {/* Vibe Coder Badge */}
-                        <motion.div
-                            className="mt-6 text-center"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                        >
-                            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold shadow-lg">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                                </svg>
-                                Vibe Coder Mode: ON
-                            </span>
-                        </motion.div>
                     </motion.div>
                 </div>
             </div>

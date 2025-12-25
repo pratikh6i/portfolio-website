@@ -1,9 +1,26 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { hallOfFame, certifications } from '../data/content';
+import { Lightbox } from './Lightbox';
 
 function HallOfFame() {
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentImage, setCurrentImage] = useState({ src: '', alt: '' });
+
+    const openLightbox = (src, alt) => {
+        setCurrentImage({ src, alt });
+        setLightboxOpen(true);
+    };
+
     return (
         <section className="py-16 bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50" id="achievements">
+            <Lightbox
+                src={currentImage.src}
+                alt={currentImage.alt}
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+            />
+
             <div className="container">
                 {/* Section Header */}
                 <motion.div
@@ -54,19 +71,25 @@ function HallOfFame() {
                                 </div>
                             </div>
 
-                            <p className="text-amber-800 mb-4">
+                            <p className="text-amber-800 mb-6 leading-relaxed">
                                 {hallOfFame.cloudHero.description}
                             </p>
 
-                            <div className="bg-white/60 rounded-xl p-4 backdrop-blur-sm">
-                                <img
-                                    src={hallOfFame.cloudHero.image}
-                                    alt="Cloud Hero Achievement"
-                                    className="w-full rounded-lg"
-                                    onError={(e) => {
-                                        e.target.parentElement.innerHTML = '<div class="text-center py-8 text-amber-700">Upload cloudhero.png to see screenshot</div>';
-                                    }}
-                                />
+                            <div className="flex items-center gap-4">
+                                <a
+                                    href={hallOfFame.cloudHero.image}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-yellow-500 text-white text-sm font-semibold hover:bg-yellow-600 transition-colors shadow-sm hover:shadow-md"
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                                    </svg>
+                                    View Achievement Proof
+                                </a>
+                                <span className="text-sm text-amber-700 font-medium">
+                                    {hallOfFame.cloudHero.year}
+                                </span>
                             </div>
 
                             <p className="text-sm text-amber-700 mt-3 font-medium">
@@ -75,7 +98,7 @@ function HallOfFame() {
                         </div>
                     </motion.div>
 
-                    {/* Skill Boost Card - NOT a link anymore */}
+                    {/* Skill Boost Card */}
                     <motion.div
                         className="bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 rounded-3xl p-8 text-white relative overflow-hidden"
                         initial={{ opacity: 0, x: 30 }}
@@ -100,7 +123,7 @@ function HallOfFame() {
                             </div>
 
                             {/* Stats */}
-                            <div className="grid grid-cols-3 gap-4 mb-6">
+                            <div className="grid grid-cols-3 gap-4 mb-8">
                                 <div className="bg-white/10 rounded-xl p-4 text-center backdrop-blur-sm">
                                     <div className="text-2xl font-bold">{hallOfFame.skillBoost.labs}</div>
                                     <div className="text-xs text-blue-200">Labs Completed</div>
@@ -115,29 +138,16 @@ function HallOfFame() {
                                 </div>
                             </div>
 
-                            {/* Screenshot */}
-                            <div className="bg-white/20 rounded-xl p-3 backdrop-blur-sm">
-                                <img
-                                    src={hallOfFame.skillBoost.image}
-                                    alt="Skill Boost Profile"
-                                    className="w-full rounded-lg"
-                                    onError={(e) => {
-                                        e.target.parentElement.innerHTML = '<div class="text-center py-8 text-blue-200">Upload skillboost.png to see screenshot</div>';
-                                    }}
-                                />
-                            </div>
-
-                            {/* Only this link should be clickable */}
                             <a
                                 href={hallOfFame.skillBoost.profileUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-blue-200 hover:text-white mt-4 text-sm transition-colors"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-600 text-sm font-bold hover:bg-blue-50 transition-colors shadow-sm hover:shadow-md"
                             >
-                                Click to view full profile
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
                                 </svg>
+                                View Public Profile
                             </a>
                         </div>
                     </motion.div>
@@ -157,47 +167,51 @@ function HallOfFame() {
                         {certifications.map((cert, index) => (
                             <motion.div
                                 key={cert.name}
-                                className="bg-white rounded-2xl border border-[var(--border-subtle)] p-6 text-center hover:shadow-lg transition-all"
+                                className="bg-white rounded-2xl border border-[var(--border-subtle)] p-8 text-center hover:shadow-xl transition-all h-full flex flex-col items-center justify-between"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -4 }}
+                                whileHover={{ y: -8 }}
                             >
                                 {/* Badge Image or Icon */}
-                                <div className="w-20 h-20 mx-auto mb-4 rounded-xl overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center">
+                                <div className="w-32 h-32 mx-auto mb-6 rounded-2xl overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
+                                    onClick={() => cert.badge && openLightbox(cert.badge, cert.name)}
+                                >
                                     {cert.badge ? (
                                         <img
                                             src={cert.badge}
                                             alt={cert.name}
-                                            className="w-full h-full object-contain p-2"
+                                            className="w-full h-full object-contain p-4"
                                             onError={(e) => {
                                                 e.target.style.display = 'none';
-                                                e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center"><svg width="36" height="36" viewBox="0 0 24 24" fill="${cert.color}"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>`;
+                                                e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center"><svg width="48" height="48" viewBox="0 0 24 24" fill="${cert.color}"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>`;
                                             }}
                                         />
                                     ) : (
-                                        <svg width="36" height="36" viewBox="0 0 24 24" fill={cert.color}>
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill={cert.color}>
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                         </svg>
                                     )}
                                 </div>
 
-                                <h4 className="font-bold text-[var(--text-primary)] mb-1 text-sm">
-                                    {cert.name}
-                                </h4>
-                                <p className="text-xs text-[var(--text-secondary)] mb-4">
-                                    {cert.provider}
-                                </p>
+                                <div>
+                                    <h4 className="font-bold text-[var(--text-primary)] mb-2 text-lg leading-tight">
+                                        {cert.name}
+                                    </h4>
+                                    <p className="text-sm text-[var(--text-secondary)] mb-6">
+                                        {cert.provider}
+                                    </p>
+                                </div>
 
                                 <a
                                     href={cert.verifyUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium transition-all hover:scale-105"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105"
                                     style={{ background: `${cert.color}15`, color: cert.color }}
                                 >
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                                     </svg>
                                     Verify
@@ -224,13 +238,14 @@ function HallOfFame() {
                         {hallOfFame.arcade.swags.map((swag, index) => (
                             <motion.div
                                 key={index}
-                                className="w-48 h-48 rounded-2xl overflow-hidden bg-white border border-[var(--border-subtle)] shadow-sm"
+                                className="w-48 h-48 rounded-2xl overflow-hidden bg-white border border-[var(--border-subtle)] shadow-sm cursor-zoom-in group"
                                 whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
+                                onClick={() => openLightbox(swag, `Google Cloud Swag ${index + 1}`)}
                             >
                                 <img
                                     src={swag}
                                     alt={`Google Cloud Swag ${index + 1}`}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover group-hover:brightness-110 transition-all"
                                     onError={(e) => {
                                         e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500 text-sm p-4 text-center">Upload swag-${index + 1}.jpg</div>`;
                                     }}

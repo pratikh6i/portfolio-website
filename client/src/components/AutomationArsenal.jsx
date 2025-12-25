@@ -76,8 +76,14 @@ function AutomationArsenal() {
                         >
                             {/* Header */}
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-10 h-10 rounded-xl bg-[var(--bg-tertiary)] flex items-center justify-center group-hover:bg-blue-50 transition-colors">
-                                    {TechIcons[tool.iconType] || TechIcons.default}
+                                <div className="h-10 rounded-xl bg-[var(--bg-tertiary)] flex items-center justify-center group-hover:bg-blue-50 transition-colors p-2 gap-2">
+                                    {tool.icons && tool.icons.length > 0 ? (
+                                        tool.icons.map((icon, idx) => (
+                                            <img key={idx} src={icon} alt={tool.tech} className="h-full w-auto object-contain" />
+                                        ))
+                                    ) : (
+                                        TechIcons[tool.iconType] || TechIcons.default
+                                    )}
                                 </div>
                                 <span className="px-2 py-1 text-xs font-medium rounded-md bg-[var(--bg-tertiary)] text-[var(--text-secondary)] group-hover:bg-blue-50 group-hover:text-blue-700 transition-colors">
                                     {tool.tech}

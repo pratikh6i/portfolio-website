@@ -34,9 +34,9 @@ function GoogleTranslate() {
   }, []);
 
   return (
-    <div className="google-translate-wrapper flex items-center gap-2">
-      {/* Translation Icon Only */}
-      <div className="translate-icon text-[var(--text-secondary)]">
+    <div className="relative inline-block mt-1">
+      {/* Custom Icon (Visual) */}
+      <div className="flex items-center justify-center p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer text-gray-600">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m5 8 6 6" />
           <path d="m4 14 6-6 2-3" />
@@ -46,80 +46,33 @@ function GoogleTranslate() {
           <path d="M14 18h6" />
         </svg>
       </div>
-      <div id="google_translate_element"></div>
+
+      {/* Google Translate Widget (Hidden but Overlayed) */}
+      <div
+        id="google_translate_element"
+        className="absolute top-0 left-0 w-full h-full opacity-0 overflow-hidden cursor-pointer scale-150 origin-top-left"
+        style={{ zIndex: 10 }}
+      >
+        {/* The Google Translate dropdown will fill this invisible container, 
+            so clicking the icon effectively clicks the dropdown */}
+      </div>
+
       <style>{`
-        .google-translate-wrapper {
-          display: flex;
-          align-items: center;
-        }
-        
-        .translate-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        
-        /* Hide Google branding and improve appearance */
+        /* Hide everything from Google except the select dropdown which is made invisible by opacity-0 on parent */
         .goog-te-gadget {
-          font-family: inherit !important;
-          font-size: 0 !important;
+            font-size: 0 !important;
         }
-        
-        .goog-te-gadget .goog-te-combo {
-          font-family: 'Inter', system-ui, sans-serif !important;
-          font-size: 13px !important;
-          padding: 6px 10px !important;
-          border: 1px solid #e5e7eb !important;
-          border-radius: 8px !important;
-          background: white !important;
-          color: #374151 !important;
-          cursor: pointer !important;
-          outline: none !important;
-          min-width: 100px !important;
+        .goog-te-gadget span {
+            display: none !important;
         }
-        
-        .goog-te-gadget .goog-te-combo:hover {
-          border-color: #4285f4 !important;
-        }
-        
-        .goog-te-gadget .goog-te-combo:focus {
-          border-color: #4285f4 !important;
-          box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2) !important;
-        }
-        
-        /* Hide Google logo and powered by */
-        .goog-logo-link,
-        .goog-te-gadget span,
-        .goog-te-gadget > span {
-          display: none !important;
-        }
-        
-        /* Hide the banner that appears at top */
         .goog-te-banner-frame {
-          display: none !important;
+            display: none !important;
         }
-        
+        #goog-gt-tt {
+            display: none !important;
+        }
         body {
-          top: 0 !important;
-        }
-        
-        /* Hide "Powered by Google" text */
-        #goog-gt-tt, .goog-te-balloon-frame {
-          display: none !important;
-        }
-        
-        .goog-text-highlight {
-          background: none !important;
-          box-shadow: none !important;
-        }
-        
-        .skiptranslate iframe {
-          display: none !important;
-        }
-        
-        /* Ensure only dropdown shows */
-        .goog-te-gadget > div:first-child {
-          display: none !important;
+            top: 0 !important;
         }
       `}</style>
     </div>
