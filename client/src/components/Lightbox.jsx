@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export function Lightbox({ src, alt, isOpen, onClose }) {
     // Close on escape key
