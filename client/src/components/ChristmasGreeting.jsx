@@ -30,7 +30,7 @@ const ChristmasGreeting = () => {
                         transition={{ duration: 2, ease: "easeOut" }}
                     >
                         <img
-                            src={`${assetPath}/christmas-greeting.png`}
+                            src={`${assetPath}/horizontal-christmas-banner-with-gifts.jpg`}
                             alt="Merry Christmas"
                             className="w-full h-full object-cover"
                         />

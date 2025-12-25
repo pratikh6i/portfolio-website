@@ -27,8 +27,12 @@ class Snowflake {
     draw(ctx) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        // Slight gray-blue tint (rgba(220, 230, 240)) for visibility on white
+        ctx.fillStyle = `rgba(200, 210, 220, ${this.opacity})`;
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.1)';
         ctx.fill();
+        ctx.shadowBlur = 0; // Reset for next drawings
     }
 }
 

@@ -24,13 +24,10 @@ function ProjectInventory() {
                     viewport={{ once: true }}
                 >
                     <div className="relative inline-block">
-                        <motion.img
+                        <img
                             src={`${assetPath}/santa-hat.svg`}
-                            className="absolute -top-7 -left-5 w-10 h-10 pointer-events-none z-20"
-                            initial={{ rotate: -20, y: 5, opacity: 0 }}
-                            whileInView={{ rotate: -15, y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                            className="absolute -top-7 -left-5 w-10 h-10 pointer-events-none z-20 rotate-[-15deg]"
+                            alt=""
                         />
                         <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-3">
                             Project Inventory

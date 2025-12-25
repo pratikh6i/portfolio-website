@@ -70,17 +70,10 @@ function App() {
           {/* Logo/Name with Santa Hat */}
           <div className="relative group">
             {/* Santa Hat */}
-            <motion.img
+            <img
               src={`${assetPath}/santa-hat.svg`}
-              className="absolute -top-6 -left-3 w-8 h-8 pointer-events-none z-20"
-              initial={{ rotate: -20, y: 5, opacity: 0 }}
-              animate={{ rotate: -15, y: 0, opacity: 1 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
+              className="absolute -top-3 -left-3 w-6 h-6 pointer-events-none rotate-[-15deg]"
+              alt=""
             />
             <motion.a
               href="#"
