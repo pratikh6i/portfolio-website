@@ -54,9 +54,19 @@ function AutomationArsenal() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-3">
-                        The Automation Arsenal
-                    </h2>
+                    <div className="relative inline-block">
+                        <motion.img
+                            src={`${assetPath}/santa-hat.svg`}
+                            className="absolute -top-7 -left-4 w-10 h-10 pointer-events-none z-20"
+                            initial={{ rotate: -20, y: 5, opacity: 0 }}
+                            whileInView={{ rotate: -15, y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                        />
+                        <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-3">
+                            The Automation Arsenal
+                        </h2>
+                    </div>
                     <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
                         Most security engineers just monitor. <span className="font-semibold text-[var(--accent-primary)]">I build.</span> Here are custom tools I've created to automate the boring stuff.
                     </p>

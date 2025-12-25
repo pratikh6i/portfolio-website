@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroSection from './components/HeroSection';
 import ClientCaseStudies from './components/ClientCaseStudies';
@@ -10,27 +11,83 @@ import NewsSection from './components/NewsSection';
 import BlogsSection from './components/BlogsSection';
 import Footer from './components/Footer';
 import GoogleTranslate from './components/GoogleTranslate';
+import { assetPath } from './data/content';
+import Snowfall from './components/Snowfall';
 import './index.css';
 
 function App() {
+  // Time-based Favicon Logic
+  useEffect(() => {
+    const updateFavicon = () => {
+      const hours = new Date().getHours();
+      const favicon = document.querySelector('link[rel="icon"]');
+      if (favicon) {
+        // Night time: 7 PM (19) to 6 AM
+        if (hours >= 19 || hours < 6) {
+          favicon.href = `${assetPath}/moon.svg`;
+        } else {
+          favicon.href = `${assetPath}/sun.svg`;
+        }
+      }
+    };
+
+    updateFavicon();
+    // Update every minute in case they stay long
+    const interval = setInterval(updateFavicon, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]">
+    <div className="min-h-screen bg-[var(--bg-primary)] overflow-x-hidden">
+      {/* Christmas Snowfall */}
+      <Snowfall />
       {/* Fixed Header with Google Translate */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 py-4 px-6 bg-white/80 backdrop-blur-md border-b border-[var(--border-subtle)]"
+        className="fixed top-0 left-0 right-0 z-50 py-4 px-6 bg-white/80 backdrop-blur-md border-b border-[var(--border-subtle)] overflow-hidden"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo/Name */}
-          <motion.a
-            href="#"
-            className="text-xl font-bold gradient-text"
-            whileHover={{ scale: 1.05 }}
-          >
-            Pratik Shetti
-          </motion.a>
+        {/* Starry/Pattern Background for Header */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="stars" width="100" height="100" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="1" fill="currentColor" />
+                <circle cx="50" cy="40" r="1.5" fill="currentColor" />
+                <circle cx="90" cy="20" r="1" fill="currentColor" />
+                <circle cx="30" cy="80" r="1" fill="currentColor" />
+                <circle cx="70" cy="60" r="1.2" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#stars)" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto flex items-center justify-between relative z-10">
+          {/* Logo/Name with Santa Hat */}
+          <div className="relative group">
+            {/* Santa Hat */}
+            <motion.img
+              src={`${assetPath}/santa-hat.svg`}
+              className="absolute -top-6 -left-3 w-8 h-8 pointer-events-none z-20"
+              initial={{ rotate: -20, y: 5, opacity: 0 }}
+              animate={{ rotate: -15, y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }}
+            />
+            <motion.a
+              href="#"
+              className="text-xl font-bold gradient-text"
+              whileHover={{ scale: 1.05 }}
+            >
+              Pratik Shetti
+            </motion.a>
+          </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-6">
