@@ -15,7 +15,7 @@ function TechArsenal() {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-3">
-                        Tech Arsenal
+                        Tech Arsenal (Skills)
                     </h2>
                     <p className="text-[var(--text-secondary)]">
                         Tools and technologies I wield daily

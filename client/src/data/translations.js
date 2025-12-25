@@ -84,7 +84,7 @@ const translations = {
         clientETech: "Python, Apps Script, SCC",
 
         // Skills Section
-        skillsTitle: "Tech Arsenal",
+        skillsTitle: "Tech Arsenal (Skills)",
         skillsSubtitle: "Tools I wield daily",
         security: "Security",
         automation: "Automation",
