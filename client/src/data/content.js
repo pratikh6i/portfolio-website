@@ -243,7 +243,7 @@ export const automationArsenal = [
     },
     {
         name: "Cloud Armor Bulk Updater",
-        description: "Updating thousands of security policies in seconds via API",
+        description: "Bulk Updating of security policies in seconds via shell.",
         tech: "GCP API",
         icons: [`${assetPath}/bash-logo.svg`],
         githubLink: "#",
