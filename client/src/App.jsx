@@ -1,103 +1,88 @@
 import { motion } from 'framer-motion';
-import { LanguageProvider } from './contexts/LanguageContext';
-import LanguageToggle from './components/LanguageToggle';
 import HeroSection from './components/HeroSection';
-import WorkExperience from './components/WorkExperience';
-import TechStack from './components/TechStack';
-import SkillBoostCard from './components/SkillBoostCard';
-import CloudHeroCard from './components/CloudHeroCard';
-import CertificationsCard from './components/CertificationsCard';
-import SocialLinks from './components/SocialLinks';
-import VibesCard from './components/VibesCard';
+import ClientCaseStudies from './components/ClientCaseStudies';
+import AutomationArsenal from './components/AutomationArsenal';
+import HallOfFame from './components/HallOfFame';
+import TechArsenal from './components/TechArsenal';
+import ProjectInventory from './components/ProjectInventory';
+import AchievementsAndInterests from './components/AchievementsAndInterests';
+import Footer from './components/Footer';
+import GoogleTranslate from './components/GoogleTranslate';
 import './index.css';
 
 function App() {
   return (
-    <LanguageProvider>
-      <div className="min-h-screen bg-[var(--bg-primary)]">
-        {/* Fixed Header with Language Toggle */}
-        <motion.header
-          className="fixed top-0 left-0 right-0 z-50 py-4 px-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="max-w-7xl mx-auto flex justify-end">
-            <LanguageToggle />
-          </div>
-        </motion.header>
+    <div className="min-h-screen bg-[var(--bg-primary)]">
+      {/* Fixed Header with Google Translate */}
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 py-4 px-6 bg-white/80 backdrop-blur-md border-b border-[var(--border-subtle)]"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Logo/Name */}
+          <motion.a
+            href="#"
+            className="text-xl font-bold gradient-text"
+            whileHover={{ scale: 1.05 }}
+          >
+            PS
+          </motion.a>
 
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            <a href="#experience" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+              Experience
+            </a>
+            <a href="#automation" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+              Automation
+            </a>
+            <a href="#achievements" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+              Achievements
+            </a>
+            <a href="#skills" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+              Skills
+            </a>
+            <a href="#projects" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+              Projects
+            </a>
+          </nav>
+
+          {/* Google Translate */}
+          <div className="flex items-center gap-4">
+            <GoogleTranslate />
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Main Content */}
+      <main className="pt-16">
         {/* Hero Section */}
         <HeroSection />
 
-        {/* Bento Grid Section */}
-        <section className="py-12">
-          <div className="container">
-            <div className="bento-grid">
-              {/* Skill Boost Card - Large */}
-              <SkillBoostCard />
+        {/* Client Case Studies */}
+        <ClientCaseStudies />
 
-              {/* Cloud Hero Trophy Card - Large */}
-              <CloudHeroCard />
+        {/* Automation Arsenal */}
+        <AutomationArsenal />
 
-              {/* Certifications */}
-              <CertificationsCard />
+        {/* Hall of Fame */}
+        <HallOfFame />
 
-              {/* Social Links */}
-              <SocialLinks />
+        {/* Tech Arsenal */}
+        <TechArsenal />
 
-              {/* Personal Vibes */}
-              <VibesCard />
-            </div>
-          </div>
-        </section>
+        {/* Project Inventory */}
+        <ProjectInventory />
 
-        {/* Work Experience Section */}
-        <WorkExperience />
+        {/* Achievements & Interests */}
+        <AchievementsAndInterests />
+      </main>
 
-        {/* Tech Stack Section */}
-        <TechStack />
-
-        {/* Footer */}
-        <motion.footer
-          className="py-12 bg-white border-t border-[var(--border-subtle)]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <div className="container text-center">
-            <div className="flex items-center justify-center gap-2 text-[var(--text-secondary)] text-sm mb-2">
-              <span>Built with</span>
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
-                ❤️
-              </motion.span>
-              <span>and</span>
-              <motion.span
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                ☕
-              </motion.span>
-              <span>using</span>
-              <span className="font-semibold text-[var(--accent-purple)]">Antigravity</span>
-            </div>
-            <p className="text-[var(--text-tertiary)] text-xs">
-              © {new Date().getFullYear()} Pratik Shetti • Cloud Security Engineer
-            </p>
-            <motion.div
-              className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 text-purple-600 text-sm font-medium"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span>⚡</span>
-              Vibe Coder Mode: ON
-            </motion.div>
-          </div>
-        </motion.footer>
-      </div>
-    </LanguageProvider>
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 }
 
