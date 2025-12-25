@@ -413,7 +413,11 @@ export const achievements = [
 
 // Personal Interests (updated title)
 export const personalInterests = [
-    { title: "Google Maps Contributor", desc: "9+ years, inspired 15+ to join" },
+    {
+        title: "Google Maps Contributor",
+        desc: "9+ years, inspired 15+ to join",
+        url: "https://maps.app.goo.gl/McEPrZUZ4CiowCbc8"
+    },
     { title: "Technology Educator", desc: "Teaching school teachers modern tech tools, Workspace, and Gemini for everyday efficiency" },
     { title: "Learning Spanish", desc: "Since 2022" },
     { title: "Astrophysics Enthusiast", desc: "Fascinated by the Universe" },

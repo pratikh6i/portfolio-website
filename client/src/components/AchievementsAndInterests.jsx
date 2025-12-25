@@ -71,17 +71,42 @@ function AchievementsAndInterests() {
                             {personalInterests.map((interest, index) => (
                                 <motion.div
                                     key={interest.title}
-                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors"
                                     initial={{ opacity: 0, x: -10 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.05 }}
                                 >
-                                    <div className="w-2 h-2 rounded-full bg-[var(--accent-primary)] mt-2 flex-shrink-0"></div>
-                                    <div>
-                                        <h4 className="font-medium text-[var(--text-primary)] text-sm">{interest.title}</h4>
-                                        <p className="text-xs text-[var(--text-secondary)]">{interest.desc}</p>
-                                    </div>
+                                    {interest.url ? (
+                                        <a
+                                            href={interest.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors w-full group"
+                                        >
+                                            <div className="w-2 h-2 rounded-full bg-[var(--accent-primary)] mt-2 flex-shrink-0"></div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center gap-2">
+                                                    <h4 className="font-medium text-[var(--text-primary)] text-sm group-hover:text-[var(--accent-primary)] transition-colors">
+                                                        {interest.title}
+                                                    </h4>
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[var(--text-tertiary)] group-hover:text-[var(--accent-primary)] transition-colors">
+                                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                                        <polyline points="15 3 21 3 21 9" />
+                                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                                    </svg>
+                                                </div>
+                                                <p className="text-xs text-[var(--text-secondary)]">{interest.desc}</p>
+                                            </div>
+                                        </a>
+                                    ) : (
+                                        <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors w-full">
+                                            <div className="w-2 h-2 rounded-full bg-[var(--accent-primary)] mt-2 flex-shrink-0"></div>
+                                            <div>
+                                                <h4 className="font-medium text-[var(--text-primary)] text-sm">{interest.title}</h4>
+                                                <p className="text-xs text-[var(--text-secondary)]">{interest.desc}</p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </motion.div>
                             ))}
                         </div>
