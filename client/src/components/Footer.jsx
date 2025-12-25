@@ -64,7 +64,7 @@ function Footer() {
                             Pratik Shetti
                         </h3>
                         <p className="text-sm text-[var(--text-secondary)]">
-                            Cloud Security Engineer | Automation Enthusiast
+                            Cloud Security Engineer | AI & Automation Enthusiast
                         </p>
                     </motion.div>
 

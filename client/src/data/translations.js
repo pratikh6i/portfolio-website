@@ -5,7 +5,7 @@ const translations = {
         greeting: "Hey, I'm",
         name: "Pratik Shetti",
         role: "Cloud Security Engineer",
-        tagline: "Vibe Coder | Automation Enthusiast",
+        tagline: "Vibe Coder | AI & Automation Enthusiast",
         subtitle: "The engineer you trust to handle the heavy lifting, scripting, and analysis",
         location: "Pune, Maharashtra 🌍",
 

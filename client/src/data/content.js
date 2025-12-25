@@ -6,7 +6,7 @@ export const assetPath = '/about-me/assets';
 
 export const profileData = {
     name: "Pratik Shetti",
-    tagline: "Cloud Security Engineer | Automation Enthusiast | Vibe Coder",
+    tagline: "Cloud Security Engineer | AI & Automation Enthusiast | Vibe Coder",
     subtext: "Securing 500+ GCP Projects & Automating Operations with Python, Shell & Gemini",
     location: "Pune, Maharashtra, India",
     currentRole: "Cloud Security Engineer @ Searce INC",
