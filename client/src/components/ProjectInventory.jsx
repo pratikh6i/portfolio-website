@@ -6,12 +6,12 @@ function ProjectInventory() {
     const [activeTab, setActiveTab] = useState('python');
 
     const tabs = [
-        { id: 'python', label: 'Python Projects', projects: pythonProjects, icon: `${assetPath}/python-logo.svg` },
-        { id: 'cloud', label: 'Cloud Projects', projects: cloudProjects, icon: `${assetPath}/gcp.svg` },
+        { id: 'python', label: 'Python Projects', projects: pythonProjects, icons: [`${assetPath}/python-logo.svg`] },
+        { id: 'cloud', label: 'Cloud Projects', projects: cloudProjects, icons: [`${assetPath}/gcp.svg`, `${assetPath}/aws-logo.svg`] },
     ];
 
     const activeProjects = tabs.find(t => t.id === activeTab)?.projects || [];
-    const activeIcon = tabs.find(t => t.id === activeTab)?.icon;
+    const activeIcons = tabs.find(t => t.id === activeTab)?.icons || [];
 
     return (
         <section className="py-16" id="projects">
@@ -44,7 +44,11 @@ function ProjectInventory() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <img src={tab.icon} alt="" className={`w-5 h-5 object-contain ${activeTab === tab.id ? 'brightness-0 invert' : ''}`} />
+                            <div className="flex items-center gap-1">
+                                {tab.icons.map((icon, i) => (
+                                    <img key={i} src={icon} alt="" className={`w-5 h-5 object-contain ${activeTab === tab.id ? 'brightness-0 invert' : ''}`} />
+                                ))}
+                            </div>
                             {tab.label}
                         </motion.button>
                     ))}
@@ -68,7 +72,11 @@ function ProjectInventory() {
                             whileHover={{ y: -2 }}
                         >
                             <div className="flex items-start gap-3">
-                                <img src={activeIcon} alt="" className="w-6 h-6 object-contain mt-1" />
+                                <div className="flex gap-1 mt-1 shrink-0">
+                                    {activeIcons.map((icon, i) => (
+                                        <img key={i} src={icon} alt="" className="w-6 h-6 object-contain" />
+                                    ))}
+                                </div>
                                 <div>
                                     <h3 className="font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">
                                         {project.name}
