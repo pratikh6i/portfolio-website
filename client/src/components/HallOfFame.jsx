@@ -13,7 +13,7 @@ function HallOfFame() {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-3">
-                        🏆 Hall of Fame
+                        Hall of Fame
                     </h2>
                     <p className="text-[var(--text-secondary)]">
                         Certifications, achievements, and recognition
@@ -34,13 +34,11 @@ function HallOfFame() {
 
                         <div className="relative z-10">
                             <div className="flex items-center gap-4 mb-4">
-                                <motion.span
-                                    className="text-6xl"
-                                    animate={{ rotate: [0, -5, 5, 0], scale: [1, 1.1, 1] }}
-                                    transition={{ duration: 3, repeat: Infinity }}
-                                >
-                                    🏆
-                                </motion.span>
+                                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-amber-900">
                                         {hallOfFame.cloudHero.title}
@@ -62,15 +60,17 @@ function HallOfFame() {
 
                             <div className="bg-white/60 rounded-xl p-4 backdrop-blur-sm">
                                 <img
-                                    src="/about-me/assets/cloudhero.png"
+                                    src={hallOfFame.cloudHero.image}
                                     alt="Cloud Hero Achievement"
                                     className="w-full rounded-lg"
-                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                    onError={(e) => {
+                                        e.target.parentElement.innerHTML = '<div class="text-center py-8 text-amber-700">Upload cloudhero.png to see screenshot</div>';
+                                    }}
                                 />
                             </div>
 
                             <p className="text-sm text-amber-700 mt-3 font-medium">
-                                📅 {hallOfFame.cloudHero.year}
+                                {hallOfFame.cloudHero.year}
                             </p>
                         </div>
                     </motion.div>
@@ -121,10 +121,12 @@ function HallOfFame() {
                             {/* Screenshot */}
                             <div className="bg-white/20 rounded-xl p-3 backdrop-blur-sm">
                                 <img
-                                    src="/about-me/assets/skillboost.png"
+                                    src={hallOfFame.skillBoost.image}
                                     alt="Skill Boost Profile"
                                     className="w-full rounded-lg"
-                                    onError={(e) => { e.target.style.display = 'none'; }}
+                                    onError={(e) => {
+                                        e.target.parentElement.innerHTML = '<div class="text-center py-8 text-blue-200">Upload skillboost.png to see screenshot</div>';
+                                    }}
                                 />
                             </div>
 
@@ -143,7 +145,7 @@ function HallOfFame() {
                     viewport={{ once: true }}
                 >
                     <h3 className="text-xl font-bold text-[var(--text-primary)] mb-6 text-center">
-                        🎓 Verified Certifications
+                        Verified Certifications
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {certifications.map((cert, index) => (
@@ -159,12 +161,12 @@ function HallOfFame() {
                                 {/* Badge Image */}
                                 <div className="w-24 h-24 mx-auto mb-4 rounded-xl overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center">
                                     <img
-                                        src={`/about-me${cert.badge}`}
+                                        src={cert.badge}
                                         alt={cert.name}
                                         className="w-full h-full object-contain p-2"
                                         onError={(e) => {
                                             e.target.style.display = 'none';
-                                            e.target.parentElement.innerHTML = `<span style="font-size: 2rem; color: ${cert.color}">🎓</span>`;
+                                            e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="${cert.color}"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>`;
                                         }}
                                     />
                                 </div>
@@ -183,7 +185,9 @@ function HallOfFame() {
                                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105"
                                     style={{ background: `${cert.color}15`, color: cert.color }}
                                 >
-                                    <span>✓</span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                    </svg>
                                     Verify on Credly
                                 </a>
                             </motion.div>
@@ -199,7 +203,7 @@ function HallOfFame() {
                     viewport={{ once: true }}
                 >
                     <h3 className="text-xl font-bold text-[var(--text-primary)] mb-6 text-center">
-                        🎁 Google Cloud Arcade Champion - Swag Gallery
+                        Google Cloud Arcade Champion - Swag Gallery
                     </h3>
                     <p className="text-center text-[var(--text-secondary)] mb-6">
                         Champion tier finisher 4 times with hands-on cloud experience
@@ -212,11 +216,11 @@ function HallOfFame() {
                                 whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
                             >
                                 <img
-                                    src={`/about-me${swag}`}
+                                    src={swag}
                                     alt={`Google Cloud Swag ${index + 1}`}
                                     className="w-full h-full object-cover"
                                     onError={(e) => {
-                                        e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-gray-100 text-4xl">🎁</div>`;
+                                        e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500 text-sm p-4 text-center">Upload swag-${index + 1}.jpg</div>`;
                                     }}
                                 />
                             </motion.div>

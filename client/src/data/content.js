@@ -4,9 +4,9 @@
 export const profileData = {
     name: "Pratik Shetti",
     tagline: "Cloud Security Engineer | Automation Specialist | Vibe Coder",
-    subtext: "Securing 300+ GCP Projects & Automating Operations with Python, Shell & Gemini",
+    subtext: "Securing 500+ GCP Projects & Automating Operations with Python, Shell & Gemini",
     location: "Pune, Maharashtra, India",
-    currentRole: "Cloud Security Engineer @ Searce",
+    currentRole: "Cloud Security Engineer @ Searce INC",
     since: "May 2024",
 
     // Social Links
@@ -15,7 +15,7 @@ export const profileData = {
         github: "https://github.com/pratikh6i",
         twitter: "https://x.com/pratik_h6i",
         skillBoost: "https://www.skills.google/public_profiles/14a39d36-3d88-4a0c-85ec-9533ba770ac1",
-        resume: "#", // Placeholder - update with actual resume link
+        resume: "https://drive.google.com/file/d/1YEy9BSAtQxvmhxCIYss-64vPK8DPKr9U/view?usp=sharing",
     },
 
     // Stats
@@ -24,20 +24,22 @@ export const profileData = {
         yearsLabel: "Years in Security Ops",
         clients: "8+",
         clientsLabel: "Enterprise Clients",
-        scripts: "15+",
+        scripts: "20+",
         scriptsLabel: "Automation Scripts",
-        reports: "200+",
-        reportsLabel: "Security Reports",
+        sops: "25+",
+        sopsLabel: "SOPs Created",
     },
 };
+
+// Image base path for GitHub Pages
+export const assetPath = '/about-me/assets';
 
 // 8 Client Case Studies
 export const clientCaseStudies = [
     {
         id: "client-ael",
-        icon: "🛒",
         title: "The Indian E-Commerce Giant",
-        industry: "Retail",
+        industry: "India",
         tagColor: "#1d4ed8",
         tagBg: "#dbeafe",
         duration: "Completed",
@@ -57,7 +59,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-awr",
-        icon: "🚗",
         title: "Global Automotive & Lifestyle Group",
         industry: "UAE",
         tagColor: "#166534",
@@ -81,7 +82,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-pickme",
-        icon: "🚕",
         title: "Ride-Hailing Superapp",
         industry: "Sri Lanka",
         tagColor: "#92400e",
@@ -103,7 +103,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-ntuc",
-        icon: "🏢",
         title: "Leading Insurance Provider",
         industry: "Singapore",
         tagColor: "#7c3aed",
@@ -126,7 +125,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-redcliff",
-        icon: "🏥",
         title: "HealthTech Platform",
         industry: "India",
         tagColor: "#dc2626",
@@ -147,7 +145,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-cxapp",
-        icon: "💻",
         title: "Enterprise SaaS Platform",
         industry: "US/EU",
         tagColor: "#be185d",
@@ -169,7 +166,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-vitu",
-        icon: "🔥",
         title: "Cloud NGFW Project",
         industry: "US",
         tagColor: "#ea580c",
@@ -190,7 +186,6 @@ export const clientCaseStudies = [
     },
     {
         id: "client-ism",
-        icon: "🎮",
         title: "EU Gaming Platform",
         industry: "EU",
         tagColor: "#0891b2",
@@ -218,70 +213,60 @@ export const automationArsenal = [
         name: "GCP SCC Cleaner",
         description: "Auto-formatting complex JSON to clean CSV for executive reporting",
         tech: "Apps Script",
-        icon: "📊",
-        githubLink: "#", // Placeholder
+        githubLink: "#",
     },
     {
         name: "Cloud Armor Log Batcher",
         description: "Python script to bulk-generate time-range-specific log links for weekly security reports",
         tech: "Python",
-        icon: "🔗",
         githubLink: "#",
     },
     {
         name: "Infrastructure Auditor",
         description: "Bash script auditing Shielded VM, IP exposure, OS Config, serial ports across instances",
         tech: "Bash",
-        icon: "🔍",
         githubLink: "#",
     },
     {
         name: "Prowler Deployer",
         description: "Complete Terraform code to deploy Prowler CNAPP tool on GCP (built with Gemini)",
         tech: "Terraform",
-        icon: "🚀",
         githubLink: "#",
     },
     {
         name: "IP Blacklist Checker",
         description: "Python script integrating 3rd party API for comprehensive IP analysis",
         tech: "Python",
-        icon: "🕵️",
         githubLink: "#",
     },
     {
         name: "Cloud Armor Bulk Updater",
         description: "Bash script for bulk updating policies, enabling adaptive protection across org",
         tech: "Bash",
-        icon: "🛡️",
         githubLink: "#",
     },
     {
         name: "SSL Policy Manager",
         description: "Bulk SSL policy updates with customizable signature configurations",
         tech: "Bash",
-        icon: "🔐",
         githubLink: "#",
     },
     {
         name: "SCC Alert Router",
         description: "Cloud Run + Pub/Sub automation for intelligent team-specific alert routing",
         tech: "Terraform + Python",
-        icon: "📬",
         githubLink: "#",
     },
     {
         name: "IAM Recommender Parser",
         description: "Python script to extract IAM recommendations from complex JSON to actionable tables",
         tech: "Python",
-        icon: "🔑",
         githubLink: "#",
     },
     {
         name: "Gemini Report Generator",
         description: "Workspace automation using Gemini to cut SCC report prep time by 30 mins/sheet",
         tech: "Apps Script + Gemini",
-        icon: "✨",
         githubLink: "#",
     },
 ];
@@ -291,21 +276,21 @@ export const certifications = [
     {
         name: "Associate Cloud Engineer",
         provider: "Google Cloud",
-        badge: "/assets/ace-badge.png",
+        badge: `${assetPath}/ace-badge.png`,
         color: "#4285f4",
         verifyUrl: "https://www.credly.com/badges/fad5ab70-4178-45e9-90f3-aa0050f1ec42",
     },
     {
         name: "Cloud Digital Leader",
         provider: "Google Cloud",
-        badge: "/assets/cdl-badge.png",
+        badge: `${assetPath}/cdl-badge.png`,
         color: "#34a853",
         verifyUrl: "https://www.credly.com/badges/7ea201f9-eed7-45a2-8358-b5269184a4ad",
     },
     {
         name: "AWS Cloud Practitioner",
         provider: "AWS",
-        badge: "/assets/aws-ccp-badge.png",
+        badge: `${assetPath}/aws-ccp-badge.png`,
         color: "#ff9900",
         verifyUrl: "https://www.credly.com/badges/e0fdc077-9ae3-43e5-a19e-8f74210c401d",
     },
@@ -357,28 +342,28 @@ export const techArsenal = {
 
 // Python Projects Inventory
 export const pythonProjects = [
-    { name: "Password Manager", desc: "Secure password generator and encrypted storage application", icon: "🔐" },
-    { name: "Interactive Quiz (API)", desc: "Trivia quiz application using external API integration", icon: "❓" },
-    { name: "Snake Game (GUI)", desc: "Classic arcade Snake game with Tkinter GUI", icon: "🐍" },
-    { name: "US States Game", desc: "Educational geography game for identifying US states", icon: "🗺️" },
-    { name: "Birthday Wisher (API)", desc: "Automated birthday email system using SMTP", icon: "🎂" },
-    { name: "Weather Email Updates", desc: "Script fetching weather data and sending email updates", icon: "🌤️" },
-    { name: "GCP SCC Processor", desc: "JSON to CSV transformation for security reports", icon: "📊" },
-    { name: "IP Blacklist Checker", desc: "IP analysis tool with 3rd party API integration", icon: "🕵️" },
-    { name: "Cloud Armor Analyzer", desc: "Bulk log link generator for security analysis", icon: "🔗" },
+    { name: "Password Manager", desc: "Secure password generator and encrypted storage application" },
+    { name: "Interactive Quiz (API)", desc: "Trivia quiz application using external API integration" },
+    { name: "Snake Game (GUI)", desc: "Classic arcade Snake game with Tkinter GUI" },
+    { name: "US States Game", desc: "Educational geography game for identifying US states" },
+    { name: "Birthday Wisher (API)", desc: "Automated birthday email system using SMTP" },
+    { name: "Weather Email Updates", desc: "Script fetching weather data and sending email updates" },
+    { name: "GCP SCC Processor", desc: "JSON to CSV transformation for security reports" },
+    { name: "IP Blacklist Checker", desc: "IP analysis tool with 3rd party API integration" },
+    { name: "Cloud Armor Analyzer", desc: "Bulk log link generator for security analysis" },
 ];
 
 // Cloud Projects Inventory
 export const cloudProjects = [
-    { name: "AWS Terraform Architecture", desc: "Secure cloud architecture with EC2, S3, RDS, and ELB using IaC", icon: "🏗️" },
-    { name: "AWS VPC Setup", desc: "Scalable network with subnets, IGW, route tables, and security groups", icon: "🌐" },
-    { name: "Elastic Beanstalk Deployment", desc: "Web app with automated provisioning, load balancing, and scaling", icon: "🌱" },
-    { name: "Serverless Blog", desc: "Cost-effective architecture using S3, Lambda, DynamoDB, API Gateway, Cognito", icon: "📝" },
-    { name: "S3 Static Hosting", desc: "Website deployment using HTML/CSS/JS on S3", icon: "🌍" },
-    { name: "Serverless Image Processor", desc: "Lambda function for image B&W conversion with S3 triggers and email notifications", icon: "🖼️" },
-    { name: "CloudWatch Monitoring", desc: "Monitoring and notification setup for key AWS resource metrics", icon: "📈" },
-    { name: "SCC Alert Automation", desc: "Cloud Run + Pub/Sub for intelligent security alert routing", icon: "📬" },
-    { name: "Prowler IaC Deployment", desc: "Complete Terraform code for CNAPP tool deployment", icon: "🚀" },
+    { name: "AWS Terraform Architecture", desc: "Secure cloud architecture with EC2, S3, RDS, and ELB using IaC" },
+    { name: "AWS VPC Setup", desc: "Scalable network with subnets, IGW, route tables, and security groups" },
+    { name: "Elastic Beanstalk Deployment", desc: "Web app with automated provisioning, load balancing, and scaling" },
+    { name: "Serverless Blog", desc: "Cost-effective architecture using S3, Lambda, DynamoDB, API Gateway, Cognito" },
+    { name: "S3 Static Hosting", desc: "Website deployment using HTML/CSS/JS on S3" },
+    { name: "Serverless Image Processor", desc: "Lambda function for image B&W conversion with S3 triggers and email notifications" },
+    { name: "CloudWatch Monitoring", desc: "Monitoring and notification setup for key AWS resource metrics" },
+    { name: "SCC Alert Automation", desc: "Cloud Run + Pub/Sub for intelligent security alert routing" },
+    { name: "Prowler IaC Deployment", desc: "Complete Terraform code for CNAPP tool deployment" },
 ];
 
 // Achievements
@@ -389,7 +374,6 @@ export const achievements = [
         venue: "IIT Roorkee",
         year: "2022",
         prize: "₹1 Lakh",
-        icon: "🏆",
     },
     {
         title: "Problem to Prosperity - 2nd Runner Up",
@@ -397,17 +381,18 @@ export const achievements = [
         venue: "PCCOE",
         year: "2020",
         prize: "Sponsorship + ₹1 Lakh",
-        icon: "🥉",
     },
 ];
 
 // Personal Interests
 export const personalInterests = [
-    { icon: "🗺️", title: "Google Maps Contributor", desc: "9+ years, inspired 15+ to join" },
-    { icon: "🇪🇸", title: "Learning Spanish", desc: "Since 2022" },
-    { icon: "🔭", title: "Astrophysics Enthusiast", desc: "Fascinated by the Universe" },
-    { icon: "♟️", title: "Chess Player", desc: "Strategic thinking" },
-    { icon: "🏏", title: "Cricket Player", desc: "Team sports" },
+    { title: "Google Maps Contributor", desc: "9+ years, inspired 15+ to join" },
+    { title: "Technology Educator", desc: "Teaching school teachers modern tech tools, Workspace, and Gemini for everyday efficiency" },
+    { title: "News Snippet Tool Creator", desc: "Built a web app for teachers to generate school news posts quickly" },
+    { title: "Youth Tech Mentor", desc: "Spending time with kids, sparking curiosity about technology, space, and critical thinking" },
+    { title: "Learning Spanish", desc: "Since 2022" },
+    { title: "Astrophysics Enthusiast", desc: "Fascinated by the Universe" },
+    { title: "Chess & Cricket Player", desc: "Strategic games and team sports" },
 ];
 
 // Vibe Coder Projects
@@ -416,13 +401,11 @@ export const vibeCoderProjects = [
         title: "Hardware Reseller Site",
         description: "Product showcase for local business, increasing customer engagement",
         url: "https://pratikh6i.github.io/RutvikPatilBussinesGroup/",
-        icon: "🛒",
     },
     {
         title: "EdTech WebApp",
         description: "React-based web app with CI/CD pipelines via GitHub",
         url: "https://risinghelixx.com",
-        icon: "📚",
     },
 ];
 
@@ -433,7 +416,7 @@ export const hallOfFame = {
         subtitle: "Top 3 in APAC",
         description: "Ranked 3rd in Cloud Hero GenAI Infrastructure Implementation challenge",
         year: "Dec 2025",
-        image: "/assets/cloudhero.png",
+        image: `${assetPath}/cloudhero.png`,
     },
     skillBoost: {
         title: "Google Cloud Skills",
@@ -441,12 +424,26 @@ export const hallOfFame = {
         points: "78,750",
         courses: "38+",
         tier: "Tier 1: Expert",
-        image: "/assets/skillboost.png",
+        image: `${assetPath}/skillboost.png`,
         profileUrl: "https://www.skills.google/public_profiles/14a39d36-3d88-4a0c-85ec-9533ba770ac1",
     },
     arcade: {
         title: "Google Cloud Arcade Champion",
         description: "Champion tier finisher 4 times with hands-on cloud experience",
-        swags: ["/assets/swag-1.jpg", "/assets/swag-2.jpg"],
+        swags: [`${assetPath}/swag-1.jpg`, `${assetPath}/swag-2.jpg`],
     },
 };
+
+// News updates
+export const newsUpdates = [
+    {
+        date: "Dec 2025",
+        title: "Cloud Hero Top 3 in APAC",
+        description: "Ranked 3rd in the Cloud Hero GenAI Infrastructure Implementation challenge across APAC region.",
+    },
+    {
+        date: "Dec 2025",
+        title: "Portfolio Website Launch",
+        description: "Launched this personal portfolio website showcasing my journey as a Cloud Security Engineer.",
+    },
+];

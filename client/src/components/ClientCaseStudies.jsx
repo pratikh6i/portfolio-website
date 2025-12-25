@@ -16,28 +16,20 @@ function CaseStudyCard({ client, isExpanded, onToggle }) {
                 onClick={onToggle}
             >
                 <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-4">
-                        <motion.span
-                            className="text-4xl"
-                            whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-                        >
-                            {client.icon}
-                        </motion.span>
-                        <div>
-                            <h3 className="text-lg font-bold text-[var(--text-primary)]">
-                                {client.title}
-                            </h3>
-                            <div className="flex items-center gap-2 mt-1">
-                                <span
-                                    className="px-2 py-0.5 text-xs font-semibold rounded-full"
-                                    style={{ background: client.tagBg, color: client.tagColor }}
-                                >
-                                    {client.industry}
-                                </span>
-                                <span className="text-xs text-[var(--text-tertiary)]">
-                                    {client.duration}
-                                </span>
-                            </div>
+                    <div>
+                        <h3 className="text-lg font-bold text-[var(--text-primary)]">
+                            {client.title}
+                        </h3>
+                        <div className="flex items-center gap-2 mt-1">
+                            <span
+                                className="px-2 py-0.5 text-xs font-semibold rounded-full"
+                                style={{ background: client.tagBg, color: client.tagColor }}
+                            >
+                                {client.industry}
+                            </span>
+                            <span className="text-xs text-[var(--text-tertiary)]">
+                                {client.duration}
+                            </span>
                         </div>
                     </div>
 
@@ -45,17 +37,19 @@ function CaseStudyCard({ client, isExpanded, onToggle }) {
                         className="w-8 h-8 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center text-[var(--text-secondary)]"
                         animate={{ rotate: isExpanded ? 180 : 0 }}
                     >
-                        ▼
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
+                        </svg>
                     </motion.button>
                 </div>
 
                 {/* Quick Stats */}
                 <div className="mt-4 flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-[var(--bg-tertiary)] rounded-full text-sm font-medium text-[var(--text-primary)]">
-                        📊 {client.metric}
+                        {client.metric}
                     </span>
                     <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm font-medium">
-                        👤 {client.role}
+                        {client.role}
                     </span>
                 </div>
             </div>
@@ -74,7 +68,7 @@ function CaseStudyCard({ client, isExpanded, onToggle }) {
                             {/* Mission */}
                             <div className="mb-4">
                                 <h4 className="text-xs font-bold text-[var(--text-tertiary)] uppercase tracking-wider mb-2">
-                                    🎯 The Mission
+                                    The Mission
                                 </h4>
                                 <p className="text-sm text-[var(--text-secondary)]">
                                     {client.mission}
@@ -84,7 +78,7 @@ function CaseStudyCard({ client, isExpanded, onToggle }) {
                             {/* Responsibilities */}
                             <div className="mb-4">
                                 <h4 className="text-xs font-bold text-[var(--text-tertiary)] uppercase tracking-wider mb-2">
-                                    ✅ What I Delivered
+                                    What I Delivered
                                 </h4>
                                 <ul className="space-y-2">
                                     {client.responsibilities.map((resp, i) => (
@@ -95,7 +89,7 @@ function CaseStudyCard({ client, isExpanded, onToggle }) {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: i * 0.05 }}
                                         >
-                                            <span className="text-green-500 mt-0.5">✓</span>
+                                            <span className="text-green-500 mt-0.5 font-bold">✓</span>
                                             {resp}
                                         </motion.li>
                                     ))}
@@ -105,7 +99,7 @@ function CaseStudyCard({ client, isExpanded, onToggle }) {
                             {/* Tech Stack */}
                             <div className="mb-4">
                                 <h4 className="text-xs font-bold text-[var(--text-tertiary)] uppercase tracking-wider mb-2">
-                                    🛠️ Tech Stack
+                                    Tech Stack
                                 </h4>
                                 <div className="flex flex-wrap gap-2">
                                     {client.techStack.map((tech, i) => (

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { profileData } from '../data/content';
+import { profileData, assetPath } from '../data/content';
 
 function HeroSection() {
     const stats = [
         { value: profileData.stats.yearsExp, label: profileData.stats.yearsLabel, color: '#4285f4' },
         { value: profileData.stats.clients, label: profileData.stats.clientsLabel, color: '#34a853' },
         { value: profileData.stats.scripts, label: profileData.stats.scriptsLabel, color: '#9333ea' },
-        { value: profileData.stats.reports, label: profileData.stats.reportsLabel, color: '#f97316' },
+        { value: profileData.stats.sops, label: profileData.stats.sopsLabel, color: '#f97316' },
     ];
 
     return (
@@ -14,7 +14,7 @@ function HeroSection() {
             {/* Hero Image with Fade */}
             <div className="hero-image-container">
                 <img
-                    src="/about-me/assets/profile.jpg"
+                    src={`${assetPath}/profile.jpg`}
                     alt="Pratik Shetti"
                     className="hero-image"
                     onError={(e) => { e.target.style.display = 'none'; }}
@@ -68,12 +68,11 @@ function HeroSection() {
 
                     {/* Subtext - The Key Differentiator */}
                     <motion.p
-                        className="text-lg text-[var(--accent-purple)] font-medium mb-4 flex items-center gap-2"
+                        className="text-lg text-[var(--accent-purple)] font-medium mb-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <span>🚀</span>
                         {profileData.subtext}
                     </motion.p>
 
@@ -84,7 +83,10 @@ function HeroSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <span className="text-lg">📍</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[var(--accent-primary)]">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
                         <span className="text-sm font-medium text-[var(--text-primary)]">
                             {profileData.location}
                         </span>
@@ -132,7 +134,9 @@ function HeroSection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent-primary)] text-white font-medium hover:shadow-lg transition-all hover:scale-105"
                         >
-                            <span>💬</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 14h-3v-5c0-1.5-1.5-1.5-1.5 0v5H10V9h3v1.5c.5-1 1.5-1.5 2.5-1.5 2.5 0 2.5 2.5 2.5 4v5zM7 9H4V6h3v3zm0 9H4v-8h3v8z" />
+                            </svg>
                             Let's Collaborate
                         </a>
                         <a
@@ -141,7 +145,13 @@ function HeroSection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium hover:shadow-lg transition-all hover:scale-105"
                         >
-                            <span>📄</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>
                             Download Resume
                         </a>
                     </motion.div>

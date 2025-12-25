@@ -6,6 +6,8 @@ import HallOfFame from './components/HallOfFame';
 import TechArsenal from './components/TechArsenal';
 import ProjectInventory from './components/ProjectInventory';
 import AchievementsAndInterests from './components/AchievementsAndInterests';
+import NewsSection from './components/NewsSection';
+import BlogsSection from './components/BlogsSection';
 import Footer from './components/Footer';
 import GoogleTranslate from './components/GoogleTranslate';
 import './index.css';
@@ -47,6 +49,9 @@ function App() {
             <a href="#projects" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
               Projects
             </a>
+            <a href="#blogs" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
+              Blog
+            </a>
           </nav>
 
           {/* Google Translate */}
@@ -78,6 +83,12 @@ function App() {
 
         {/* Achievements & Interests */}
         <AchievementsAndInterests />
+
+        {/* News Section */}
+        <NewsSection />
+
+        {/* Blogs Section */}
+        <BlogsSection />
       </main>
 
       {/* Footer */}
