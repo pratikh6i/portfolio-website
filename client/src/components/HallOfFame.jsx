@@ -211,8 +211,7 @@ function HallOfFame() {
                                     href={cert.verifyUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105"
-                                    style={{ background: `${cert.color}15`, color: cert.color }}
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 bg-blue-100 text-blue-600"
                                 >
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />

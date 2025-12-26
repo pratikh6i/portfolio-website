@@ -11,12 +11,13 @@ function HeroSection() {
 
     return (
         <section className="hero-section">
-            {/* Hero Image with Fade */}
+            {/* Hero Image with Fade and Blur */}
             <div className="hero-image-container">
                 <img
                     src={`${assetPath}/profile.jpg`}
                     alt="Pratik Shetti"
                     className="hero-image"
+                    style={{ filter: 'blur(2px)' }}
                     onError={(e) => {
                         console.error('Hero image failed to load:', e.target.src);
                         e.target.style.background = '#f1f5f9';
@@ -54,16 +55,7 @@ function HeroSection() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                         </div>
                     </motion.div>
-                    {/* Badge */}
-                    <motion.div
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        {profileData.currentRole} • {profileData.since}
-                    </motion.div>
+
 
                     {/* Name */}
                     <motion.h1
