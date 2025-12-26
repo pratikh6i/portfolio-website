@@ -193,10 +193,12 @@ function ClientCaseStudies() {
                     {clientCaseStudies.map((client, index) => (
                         <motion.div
                             key={client.id}
+                            className={`${expandedId === client.id ? 'md:col-span-2' : ''}`}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
+                            layout
                         >
                             <CaseStudyCard
                                 client={client}

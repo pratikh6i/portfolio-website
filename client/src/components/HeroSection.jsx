@@ -11,22 +11,26 @@ function HeroSection() {
 
     return (
         <section className="hero-section">
-            {/* Hero Image with Fade and Blur */}
+            {/* Hero Image with Fade */}
             <div className="hero-image-container">
                 <img
                     src={`${assetPath}/profile.jpg`}
                     alt="Pratik Shetti"
                     className="hero-image"
-                    style={{ filter: 'blur(2px)' }}
                     onError={(e) => {
                         console.error('Hero image failed to load:', e.target.src);
                         e.target.style.background = '#f1f5f9';
                     }}
                 />
+                {/* Blurred gradient overlay at the transition */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: 'linear-gradient(90deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.8) 30%, transparent 60%)'
+                        background: 'linear-gradient(90deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.95) 35%, rgba(248,250,252,0.4) 55%, transparent 70%)',
+                        backdropFilter: 'blur(4px)',
+                        WebkitBackdropFilter: 'blur(4px)',
+                        maskImage: 'linear-gradient(90deg, white 0%, white 45%, transparent 70%)',
+                        WebkitMaskImage: 'linear-gradient(90deg, white 0%, white 45%, transparent 70%)'
                     }}
                 />
             </div>
