@@ -11,7 +11,7 @@ function HeroSection() {
 
     return (
         <section className="hero-section">
-            {/* Hero Image with Fade */}
+            {/* Hero Image with 50% Fade */}
             <div className="hero-image-container">
                 <img
                     src={`${assetPath}/profile.jpg`}
@@ -22,14 +22,11 @@ function HeroSection() {
                         e.target.style.background = '#f1f5f9';
                     }}
                 />
-                {/* Subtle fade on left (15%) and bottom (15%) only */}
+                {/* Fade on left edge (50%) */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: `
-                            linear-gradient(90deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.5) 8%, transparent 15%),
-                            linear-gradient(0deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.5) 8%, transparent 15%)
-                        `
+                        background: 'linear-gradient(90deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.6) 20%, rgba(248,250,252,0.2) 35%, transparent 50%)'
                     }}
                 />
             </div>
