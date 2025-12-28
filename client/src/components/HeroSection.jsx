@@ -99,7 +99,7 @@ function HeroSection() {
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'cover',
-                                    transform: 'scale(1)', /* Zoom 1x */
+                                    transform: 'scale(1.25)', /* Zoom 1.25x */
                                     border: '1px solid rgba(0,0,0,0.05)', /* Subtle border */
                                 }}
                                 onError={(e) => {
