@@ -100,8 +100,7 @@ function HeroSection() {
                                     height: '100%',
                                     objectFit: 'cover',
                                     transform: 'scale(1)', /* Zoom 1x */
-                                    maskImage: 'radial-gradient(circle, black 40%, transparent 95%)', /* Blur/Fade edges */
-                                    WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 95%)',
+                                    border: '1px solid rgba(0,0,0,0.05)', /* Subtle border */
                                 }}
                                 onError={(e) => {
                                     e.target.style.background = '#f1f5f9';
