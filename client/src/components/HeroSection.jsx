@@ -1,158 +1,115 @@
-import { motion } from 'framer-motion';
 import { profileData, assetPath } from '../data/content';
 
 function HeroSection() {
-    const stats = [
-        { value: profileData.stats.yearsExp, label: profileData.stats.yearsLabel, color: '#4285f4' },
-        { value: profileData.stats.clients, label: profileData.stats.clientsLabel, color: '#34a853' },
-        { value: profileData.stats.scripts, label: profileData.stats.scriptsLabel, color: '#9333ea' },
-        { value: profileData.stats.sops, label: profileData.stats.sopsLabel, color: '#f97316' },
-    ];
-
     return (
-        <section className="hero-section">
-            {/* Hero Image with 50% Fade */}
-            <div className="hero-image-container">
-                <img
-                    src={`${assetPath}/profile.jpg`}
-                    alt="Pratik Shetti"
-                    className="hero-image"
-                    onError={(e) => {
-                        console.error('Hero image failed to load:', e.target.src);
-                        e.target.style.background = '#f1f5f9';
-                    }}
-                />
-                {/* Fade on left edge (50%) */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        background: 'linear-gradient(90deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.6) 20%, rgba(248,250,252,0.2) 35%, transparent 50%)'
-                    }}
-                />
-            </div>
+        <section className="hero">
+            <div className="container">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--spacing-3xl)' }}>
+                    <div className="hero-content">
+                        {/* Name */}
+                        <h1 className="hero-name">{profileData.name}</h1>
 
-            {/* Content */}
-            <div className="container relative z-10 py-16 md:py-24">
-                <motion.div
-                    className="max-w-2xl text-left md:text-left"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    {/* Mobile Profile Image (Hidden on Desktop) */}
-                    <motion.div
-                        className="md:hidden mb-8"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <div className="w-40 h-40 mx-auto rounded-full border-4 border-white shadow-xl overflow-hidden relative group">
+                        {/* Title */}
+                        <p className="hero-title">Cloud Security Engineer</p>
+
+                        {/* Description */}
+                        <p className="hero-description">
+                            Securing enterprise cloud infrastructure across 500+ GCP projects.
+                            Building automation tools that transform security operations.
+                            2+ years safeguarding AMER, EMEA & APAC clients at Searce Inc.
+                        </p>
+
+                        {/* Stats */}
+                        <div className="hero-stats">
+                            <div className="hero-stat">
+                                <div className="hero-stat-value">{profileData.stats.yearsExp}</div>
+                                <div className="hero-stat-label">Years Experience</div>
+                            </div>
+                            <div className="hero-stat">
+                                <div className="hero-stat-value">9+</div>
+                                <div className="hero-stat-label">Enterprise Clients</div>
+                            </div>
+                            <div className="hero-stat">
+                                <div className="hero-stat-value">{profileData.stats.scripts}</div>
+                                <div className="hero-stat-label">Automation Scripts</div>
+                            </div>
+                        </div>
+
+                        {/* CTA Links */}
+                        <div className="hero-links">
+                            <a
+                                href={profileData.links.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hero-link hero-link-primary"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                                Connect on LinkedIn
+                            </a>
+                            <a
+                                href={profileData.links.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hero-link hero-link-secondary"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                                View GitHub
+                            </a>
+                            <a
+                                href={profileData.links.resume}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hero-link hero-link-secondary"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                                Resume
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Profile Image - Right Side */}
+                    <div className="hero-image-wrapper" style={{
+                        flexShrink: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                        <div style={{
+                            width: '280px',
+                            height: '280px',
+                            borderRadius: '50%',
+                            overflow: 'hidden',
+                            position: 'relative',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.15)', /* More prominent shadow */
+                        }}>
                             <img
                                 src={`${assetPath}/profile.jpg`}
                                 alt="Pratik Shetti"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                        </div>
-                    </motion.div>
-
-
-                    {/* Name */}
-                    <motion.h1
-                        className="text-5xl md:text-6xl font-bold gradient-text mb-3"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        {profileData.name}
-                    </motion.h1>
-
-                    {/* Tagline */}
-                    <motion.h2
-                        className="text-xl md:text-2xl font-semibold text-[var(--text-primary)] mb-3"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        {profileData.tagline}
-                    </motion.h2>
-
-                    {/* Subtext - The Key Differentiator */}
-                    <motion.p
-                        className="text-lg text-[var(--accent-purple)] font-medium mb-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        {profileData.subtext}
-                    </motion.p>
-
-                    {/* Location */}
-                    <motion.div
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--border-subtle)] shadow-sm mb-8"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                    >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[var(--accent-primary)]">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-                        <span className="text-sm font-medium text-[var(--text-primary)]">
-                            {profileData.location}
-                        </span>
-                    </motion.div>
-
-                    {/* Stats Grid */}
-                    <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                    >
-                        {stats.map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                className="bg-white rounded-2xl p-4 border border-[var(--border-subtle)] shadow-sm"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.6 + index * 0.1 }}
-                                whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: `0 10px 30px ${stat.color}20`
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    transform: 'scale(2)', /* Zoom 2x */
+                                    maskImage: 'radial-gradient(circle, black 40%, transparent 95%)', /* Blur/Fade edges */
+                                    WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 95%)',
                                 }}
-                            >
-                                <div className="text-3xl font-bold" style={{ color: stat.color }}>
-                                    {stat.value}
-                                </div>
-                                <div className="text-xs text-[var(--text-secondary)] font-medium mt-1">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* CTA Buttons */}
-                    <motion.div
-                        className="mt-8 flex flex-wrap gap-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 }}
-                    >
-                        <a
-                            href={profileData.links.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A66C2] text-white font-medium hover:shadow-lg transition-all hover:scale-105"
-                        >
-                            {/* Official LinkedIn Icon */}
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg>
-                            Let's Collaborate
-                        </a>
-                    </motion.div>
-                </motion.div>
+                                onError={(e) => {
+                                    e.target.style.background = '#f1f5f9';
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

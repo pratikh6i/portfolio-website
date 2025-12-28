@@ -2,7 +2,7 @@
 // All text content is in English - Google Translate widget handles other languages
 
 // Image base path - for GitHub Pages deployment from public folder
-export const assetPath = '/about-me/assets';
+export const assetPath = '/portfolio-website/assets';
 
 export const profileData = {
     name: "Pratik Shetti",
