@@ -1,4 +1,4 @@
-import { certifications, assetPath } from '../data/content';
+import { assetPath } from '../data/content';
 
 function CertificationsSection() {
     // All certifications with status

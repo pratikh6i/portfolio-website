@@ -1,4 +1,3 @@
-import { clientCaseStudies } from '../data/content';
 
 function ExperienceSection() {
     // Key highlights from client work

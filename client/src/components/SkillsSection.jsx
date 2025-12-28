@@ -1,4 +1,3 @@
-import { techArsenal } from '../data/content';
 
 function SkillsSection() {
     const skillCategories = [

@@ -99,7 +99,7 @@ function HeroSection() {
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'cover',
-                                    transform: 'scale(2)', /* Zoom 2x */
+                                    transform: 'scale(1)', /* Zoom 1x */
                                     maskImage: 'radial-gradient(circle, black 40%, transparent 95%)', /* Blur/Fade edges */
                                     WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 95%)',
                                 }}
